@@ -15,9 +15,9 @@ public class Tree extends Plant{
      * @param species the species of this tree
      * @param index the index of this tree in the trees ArrayList of the garden it belongs to
      */
-    public Tree(Garden garden, String species){
+    public Tree(Garden garden, String species, int index){
         this.species = species;
-        this.index = garden.trees.size();
+        this.index = index;
         this.garden = garden;
     }
 }
