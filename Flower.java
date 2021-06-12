@@ -17,9 +17,9 @@ public class Flower extends Plant{
      * @param species the species name of the flower
      * @param index the index of the flower in the flowers ArrayList of the garden it belongs to
      */
-    public Flower(Garden garden, String species, int index){
+    public Flower(Garden garden, String species){
         this.species = species;
-        this.index = index;
+        this.index = garden.flowers.size();
         this.garden = garden;
     }
 
