@@ -20,28 +20,4 @@ public class Tree extends Plant{
         this.index = index;
         this.garden = garden;
     }
-
-    /**
-     * deletes this tree
-     * <p>
-     * removes this tree from the trees ArrayList of the garden this tree belongs to, and records this action into the outputs ArrayList of the
-     * garden, to be written to the output file of the garden later
-     */
-    void remove(){
-        boolean removable = false;
-
-        for (int i = 0; i < garden.trees.size(); i++){
-            if(garden.trees.get(i) == this){
-                garden.flowers.remove(i);
-                removable = true;
-                break;
-            }
-        }
-
-        if(removable) {
-            garden.outputs.add(species + " was removed on " + LocalDate.now());
-        }else{
-            garden.outputs.add("Action failed: no " + species + " to remove.");
-        }
-    }
 }
