@@ -4,7 +4,7 @@ import java.time.*;
 
 /**
  * @author Angela Cao angelacao346@gmail.com
- * @version 1.0
+ * @version 1.1
  * @since 1.0
  */
 
@@ -128,12 +128,11 @@ public class Garden {
                             trees.get(Integer.parseInt(task[2])).addFertilizer(task[3], Double.parseDouble(task[4]));
                         }
                         break;
-                    case "remove":
-                        if(task[1] == "flower"){
-                            flowers.get(Integer.parseInt(task[2])).remove();
-                        }else{
-                            trees.get(Integer.parseInt(task[2])).remove();
-                        }
+                    case "removeF":
+                        removeFlower(task[1]);
+                        break;
+                    case "removeT":
+                        removeTree(task[1]);
                         break;
                     case "collect":
                         for (int i = 0; i < flowers.size(); i++){
@@ -158,17 +157,51 @@ public class Garden {
         }
     }
 
-    void printAllFlowers(){
+    /**
+     * Removes a flower
+     * <p>
+     * Removes the first flower in the arraylist that is of the species speciesName. If no such flower exists, it outputs an error message.
+     * @param speciesName the species of flower to be removed
+     */
+    void removeFlower(String speciesName){
+        boolean removable = false;
+
         for (int i = 0; i < flowers.size(); i++){
-            System.out.print(flowers.get(i).species + "index: " + i);
-            System.out.println();
+            if(flowers.get(i).species == speciesName){
+                flowers.remove(i);
+                removable = true;
+                break;
+            }
+        }
+
+        if(removable) {
+            outputs.add(speciesName + " was removed " + LocalDate.now());
+        }else{
+            outputs.add("Action failed: no " + speciesName + " to remove.");
         }
     }
 
-    void printAllTrees(){
+    /**
+     * Removes a tree
+     * <p>
+     * Removes the first tree in the arraylist that is of the species speciesName. If no such tree exists, it outputs an error message.
+     * @param speciesName the species of tree to be removed
+     */
+    void removeTree(String speciesName){
+        boolean removable = false;
+
         for (int i = 0; i < trees.size(); i++){
-            System.out.println(trees.get(i).species + "index: " + i);
-            System.out.println();
+            if(trees.get(i).species == speciesName){
+                trees.remove(i);
+                removable = true;
+                break;
+            }
+        }
+
+        if(removable) {
+            outputs.add(speciesName + " was removed " + LocalDate.now());
+        }else{
+            outputs.add("Action failed: no " + speciesName + " to remove.");
         }
     }
 }
