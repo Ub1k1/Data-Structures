@@ -20,8 +20,11 @@ water [plant type (flower or tree)] [index of plant]
 fertilize a plant:
 fertilize [plant type (flower or tree)] [index of plant] [type of fertilizer] [amount in grams]
 
-remove a plant:
-remove [plant type (flower or tree)] [index of plant]
+remove a flower:
+removeF [species]
+
+remove a tree:
+removeT [species]
 
 collect flower seeds:
 collect
