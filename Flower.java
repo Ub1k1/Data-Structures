@@ -24,30 +24,6 @@ public class Flower extends Plant{
     }
 
     /**
-     * deletes this flower
-     * <p>
-     * removes this flower from the flowers ArrayList of the garden it belongs to and records this action in the outputs ArrayList of the garden,
-     * to be written onto the output file later
-     */
-    void remove(){
-        boolean removable = false;
-
-        for (int i = 0; i < garden.flowers.size(); i++){
-            if(garden.flowers.get(i) == this){
-                garden.flowers.remove(i);
-                removable = true;
-                break;
-            }
-        }
-
-        if(removable) {
-            garden.outputs.add(species + " was removed " + LocalDate.now());
-        }else{
-            garden.outputs.add("Action failed: no " + species + " to remove.");
-        }
-    }
-
-    /**
      * collect the seeds of this flower
      * <p>
      * collects the seeds of this flower, which is an random amt from 0 to 10, and adds this number to the total inventory of seeds, then records
