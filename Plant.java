@@ -31,11 +31,4 @@ public abstract class Plant {
     void addFertilizer(String type, double amtInGrams){
         garden.outputs.add(amtInGrams + " grams of " + type + " added to " + species + " on " + LocalDate.now());
     }
-
-    /**
-     * remove the plant
-     * <p>
-     * removes the plant from the respective ArrayList, flowers, or trees
-     */
-    abstract void remove();
 }
